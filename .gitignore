@@ -1,0 +1,8 @@
+node_modules/
+dist/
+*.log
+.DS_Store
+dist-demo/
+public/test/taisho-maid.zip
+public/test/uploaded-skin.png
+render-ysm.html

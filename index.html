@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MC Model Kit · Three.js 模型查看器</title>
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="viewport"></canvas>
+
+      <header class="topbar">
+        <div class="brand">
+          <span class="logo">MC</span>
+          <div>
+            <h1>MC Model Kit</h1>
+            <p>GeckoLib · Bedrock · YSM · Steve / Alex</p>
+          </div>
+        </div>
+        <div class="badge" id="statusBadge">就绪</div>
+      </header>
+
+      <aside class="panel">
+        <section class="drop" id="dropZone">
+          <input id="fileInput" type="file" multiple accept=".json,.png,.zip,.ysm,.geo.json" hidden />
+          <div class="drop-icon">＋</div>
+          <p class="drop-title">拖入模型文件</p>
+          <p class="drop-sub">.geo.json / .json + .png / .zip / .png 皮肤</p>
+          <p class="drop-note">支持多选：模型、贴图、动画一起拖入</p>
+          <button class="btn primary" id="browseBtn">选择文件</button>
+          <button class="btn ghost" id="folderBtn">选择 YSM 文件夹</button>
+          <input id="folderInput" type="file" webkitdirectory multiple hidden />
+        </section>
+
+        <section class="group">
+          <h2>示例</h2>
+          <div class="samples">
+            <button class="chip" data-sample="skin-steve">史蒂夫皮肤</button>
+            <button class="chip" data-sample="skin-alex">艾利克斯皮肤</button>
+            <button class="chip" data-sample="geo">基岩模型</button>
+            <button class="chip" data-sample="ysm">YSM zip 包</button>
+            <button class="chip" data-sample="ysm-folder">YSM 文件夹</button>
+          </div>
+        </section>
+
+        <section class="group" id="infoGroup" hidden>
+          <h2>模型信息</h2>
+          <dl class="info">
+            <dt>名称</dt><dd id="infoName">—</dd>
+            <dt>类型</dt><dd id="infoKind">—</dd>
+            <dt>骨骼</dt><dd id="infoBones">—</dd>
+            <dt>动画</dt><dd id="infoAnims">—</dd>
+            <dt>贴图</dt><dd id="infoTex">—</dd>
+          </dl>
+        </section>
+
+        <section class="group" id="animGroup" hidden>
+          <h2>动画</h2>
+          <div class="row">
+            <select id="animSelect"></select>
+            <button class="btn icon" id="playBtn" title="播放/暂停">❚❚</button>
+          </div>
+          <label class="range">
+            <span>速度</span>
+            <input id="speedRange" type="range" min="0.1" max="2" step="0.1" value="1" />
+            <output id="speedOut">1.0×</output>
+          </label>
+          <label class="range">
+            <span>进度</span>
+            <input id="timeRange" type="range" min="0" max="1000" step="1" value="0" />
+            <output id="timeOut">0.00s</output>
+          </label>
+        </section>
+
+        <section class="group" id="skinGroup" hidden>
+          <h2>皮肤模型</h2>
+          <div class="segmented" id="skinType">
+            <button data-type="auto" class="active">自动</button>
+            <button data-type="classic">史蒂夫</button>
+            <button data-type="slim">艾利克斯</button>
+          </div>
+        </section>
+
+        <section class="group">
+          <h2>视图</h2>
+          <label class="check"><input id="autoRotate" type="checkbox" checked /> 自动旋转</label>
+          <label class="check"><input id="showGrid" type="checkbox" checked /> 地面网格</label>
+          <div class="row view-actions">
+            <button class="btn ghost" id="frontBtn">正面</button>
+            <button class="btn ghost" id="backBtn">背面</button>
+            <button class="btn ghost" id="flipBtn">翻转</button>
+            <button class="btn ghost" id="resetBtn">复位</button>
+          </div>
+        </section>
+
+        <footer class="panel-footer">
+          <p>渲染核心：Three.js</p>
+          <p><code>mc-model-kit</code> v0.2</p>
+        </footer>
+      </aside>
+
+      <div class="hint" id="hint">拖动旋转 · 滚轮缩放</div>
+      <div class="error" id="errorBox" hidden></div>
+    </div>
+
+    <script type="module" src="/demo/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+{
+  "spec": 2,
+  "metadata": {
+    "name": "\u6d4b\u8bd5\u673a\u5668\u4eba",
+    "tips": "\u7528\u4e8e\u9a8c\u8bc1 YSM \u76ee\u5f55\u7ed3\u6784 / zip \u8bfb\u53d6",
+    "authors": [
+      {
+        "name": "MC Model Kit"
+      }
+    ],
+    "license": {
+      "type": "CC 0"
+    }
+  },
+  "properties": {
+    "preview_animation": "idle",
+    "default_texture": "robot",
+    "height_scale": 1.0,
+    "width_scale": 1.0
+  },
+  "files": {
+    "player": {
+      "model": {
+        "main": "models/main.json",
+        "arm": "models/main.json"
+      },
+      "animation": {
+        "main": "animations/main.animation.json"
+      },
+      "texture": [
+        "textures/robot.png"
+      ]
+    }
+  }
+}

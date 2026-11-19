@@ -1,0 +1,61 @@
+{
+  "name": "mc-model-kit",
+  "version": "0.2.1",
+  "description": "Three.js viewer plugin for GeckoLib / Bedrock models, YSM packages and Minecraft Steve/Alex skins",
+  "type": "module",
+  "main": "./dist/mc-model-kit.umd.cjs",
+  "module": "./dist/mc-model-kit.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/mc-model-kit.js",
+      "require": "./dist/mc-model-kit.umd.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "demo",
+    "README.md",
+    "LICENSE",
+    "协议.md",
+    "NOTICE.md",
+    "THIRD_PARTY_LICENSES.md",
+    "licenses",
+    "test-assets",
+    "LICENSES.sha256"
+  ],
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc --noEmit && vite build && tsc -p tsconfig.build.json && vite build -c vite.umd.config.ts",
+    "typecheck": "tsc --noEmit",
+    "preview": "vite preview --host 0.0.0.0",
+    "check:license": "node scripts/check-license.mjs",
+    "prepack": "npm run check:license && npm run build",
+    "build:demo": "vite build -c vite.config.demo.ts"
+  },
+  "keywords": [
+    "three",
+    "minecraft",
+    "geckolib",
+    "bedrock",
+    "ysm",
+    "skin"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "three": ">=0.170.0"
+  },
+  "dependencies": {
+    "fflate": "^0.8.2"
+  },
+  "devDependencies": {
+    "@types/three": "^0.187.0",
+    "puppeteer-core": "^24.10.0",
+    "three": "^0.187.0",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
+  },
+  "unpkg": "./dist/mc-model-kit.standalone.umd.cjs",
+  "jsdelivr": "./dist/mc-model-kit.standalone.umd.cjs"
+}
