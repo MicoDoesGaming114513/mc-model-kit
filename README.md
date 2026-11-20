@@ -9,6 +9,9 @@
 
 > 重要：官方 `.ysm` 是加密格式，浏览器端无法解密。本插件支持 YSM 的 **zip / 文件夹** 两种未加密形式；遇到加密 `.ysm` 会抛出一个带说明的 `YsmEncryptedError`，不会做破解。
 
+- GitHub 仓库：<https://github.com/MicoDoesGaming114513/mc-model-kit>
+- 在线 Demo：<https://micodoesgaming114513.github.io/mc-model-kit/>
+
 ---
 
 ## 1. 安装与构建
@@ -361,6 +364,10 @@ try {
 ---
 
 ## 7. Demo
+
+在线 Demo：<https://micodoesgaming114513.github.io/mc-model-kit/>
+
+本地运行：
 
 ```bash
 npm run dev
